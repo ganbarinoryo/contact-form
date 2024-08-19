@@ -10,4 +10,14 @@ class ContactController extends Controller
     {
         return view('index');
     }
+
+    public function confirm(Request $request)
+    {
+
+        $contact = $request->only(['name', 'email', 'tel', 'content']);
+        return view('confirm', ['contact' => $contact]);
+
+        //上記のコードをcompact関数で書くと以下のようにシンプルに記述できる↓
+        //return view('confirm', compact('contact'));
+    }
 }
