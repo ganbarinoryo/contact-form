@@ -20,20 +20,18 @@
   </header>
 
   <main>
-    <!--$contactの中身をブラウザに表示するためのコード
-    ?php print_r($contact) ?
-    確認が終わったら消す-->
     <div class="confirm__content">
       <div class="confirm__heading">
         <h2>お問い合わせ内容確認</h2>
       </div>
-      <form class="form">
+      <form class="form" action="/contacts" method="post">
+        @csrf
         <div class="confirm-table">
           <table class="confirm-table__inner">
             <tr class="confirm-table__row">
               <th class="confirm-table__header">お名前</th>
               <td class="confirm-table__text">
-                <input type="text" name="name" value="{{ $contact['name'] }}" readonly />
+                <input type="text" name="name" value="{{ $contact['name'] }}" readonly  />
               </td>
             </tr>
             <tr class="confirm-table__row">
